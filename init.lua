@@ -24,7 +24,7 @@ vim.cmd [[inoremap <expr> " getline('.')[col('.')-1] == '"' ? '<ESC>la' : '""<ES
 -- vim.cmd [[inoremap ( ()<ESC>i]]
 -- vim.cmd [[inoremap { {}<ESC>i]]
 
-vim.cmd [[nnoremap <leader>t :NERDTreeToggle<CR>]]
+vim.cmd [[nnoremap <expr> <leader>t NERDTree.IsOpen() == 0 ? ":NERDTreeFind<CR>" : ":NERDTreeToggle<CR>"]]
 
 local use = require('packer').use
 require('packer').startup(function()
