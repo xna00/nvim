@@ -48,7 +48,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require('lspconfig')
-symbol = require('symbol')
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -91,17 +90,6 @@ local on_attach = function(client, bufnr)
     '<cmd>lua vim.lsp.buf.formatting({tabSize = 2, convertTabsToSpaces = true, semicolons = "insert"})<CR>',
     opts)
   buf_set_keymap('n', '<leader>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
-
-  buf_set_keymap('n', '[f', '<cmd>lua symbol.prev(12, "start")<CR>', opts)
-  buf_set_keymap('n', ']f', '<cmd>lua symbol.next(12, "start")<CR>', opts)
-  buf_set_keymap('n', '[F', '<cmd>lua symbol.prev(12, "end")<CR>', opts)
-  buf_set_keymap('n', ']F', '<cmd>lua symbol.next(12, "end")<CR>', opts)
-  buf_set_keymap('n', '[c', '<cmd>lua symbol.prev(14, "start")<CR>', opts)
-  buf_set_keymap('n', ']c', '<cmd>lua symbol.next(14, "start")<CR>', opts)
-  buf_set_keymap('n', '[C', '<cmd>lua symbol.prev(14, "end")<CR>', opts)
-  buf_set_keymap('n', ']C', '<cmd>lua symbol.next(14, "end")<CR>', opts)
-  buf_set_keymap('n', '[p', '<cmd>lua symbol.prev(7, "start")<CR>', opts)
-  buf_set_keymap('n', ']p', '<cmd>lua symbol.next(7, "start")<CR>', opts)
 end
 
 local util = require 'lspconfig.util'
