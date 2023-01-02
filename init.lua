@@ -43,6 +43,8 @@ end)
 
 vim.cmd [[colorscheme codedark]]
 
+vim.lsp.set_log_level("info")
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -164,7 +166,7 @@ cmp.setup {
       end
     end
   },
-  sources = { { name = 'nvim_lsp' }, { name = 'luasnip' } }
+  sources = { { name = 'nvim_lsp', trigger_characters = {'-'} }, { name = 'luasnip' } }
 }
 
 require 'nvim-treesitter.configs'.setup {
