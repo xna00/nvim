@@ -166,12 +166,12 @@ cmp.setup {
       end
     end
   },
-  sources = { { name = 'nvim_lsp', trigger_characters = {'-'} }, { name = 'luasnip' } }
+  sources = { { name = 'nvim_lsp', trigger_characters = { '-' } }, { name = 'luasnip' } }
 }
 
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "tsx" },
+  ensure_installed = { "tsx", "lua", "vim" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
