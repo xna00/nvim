@@ -98,7 +98,7 @@ require('unocss')
 print(lspconfig['unocss'])
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
-  'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'unocss'
+  'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'unocss', 'ocamllsp'
 }
 local settings = {
   sumneko_lua = {
