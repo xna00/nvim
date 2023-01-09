@@ -14,8 +14,5 @@ configs['unocss'] = { default_config = {
   end,
   root_dir = function(fname)
     return util.root_pattern('unocss.config.js', 'unocss.config.ts')(fname)
-        or util.find_package_json_ancestor(fname)
-        or util.find_node_modules_ancestor(fname)
-        or util.find_git_ancestor(fname)
   end,
 } }

@@ -89,7 +89,7 @@ local on_attach = function(client, bufnr)
     opts)
   ---
   buf_set_keymap('n', '<leader>f',
-    '<cmd>lua vim.lsp.buf.formatting({tabSize = 2, convertTabsToSpaces = true, semicolons = "insert"})<CR>',
+    '<cmd>lua vim.lsp.buf.format({tabSize = 2, convertTabsToSpaces = true, semicolons = "insert", async = true})<CR>',
     opts)
   buf_set_keymap('n', '<leader>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
 end
@@ -98,7 +98,7 @@ require('unocss')
 print(lspconfig['unocss'])
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
-  'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'unocss', 'ocamllsp'
+  'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'unocss', 'tailwindcss', 'ocamllsp', 'volar'
 }
 local settings = {
   sumneko_lua = {
