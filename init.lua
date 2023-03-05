@@ -94,11 +94,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
 end
 
-require('unocss')
-print(lspconfig['unocss'])
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
-  'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'unocss', 'tailwindcss', 'ocamllsp', 'volar'
+  'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls', 'unocss', 'ocamllsp', 'volar'
 }
 local settings = {
   sumneko_lua = {
@@ -115,6 +113,7 @@ local settings = {
     }
   }
 }
+vim.lsp.set_log_level("debug")
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
